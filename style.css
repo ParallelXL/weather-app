@@ -41,3 +41,417 @@ button {
   color: var(--light);
   background: var(--primary);
 }
+
+.hide {
+  opacity: 0;
+}
+
+/* ----  Styles  ---- */
+
+.wrapper {
+  width: 880px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  background-color: var(--light);
+  border-radius: 2rem;
+  height: max-content;
+}
+
+aside {
+  width: 10%;
+  background-color: var(--light);
+  box-shadow: 6px 2px 10px #00000011;
+  padding: 3rem 0;
+  border-radius: 2rem 0 0 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+aside i {
+  display: flex;
+  position: relative;
+  color: var(--grey);
+  font-size: 1.9rem;
+  cursor: pointer;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+aside i::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -26px;
+  width: 3px;
+  height: 100%;
+  background-color: var(--primary);
+  transform: translateY(-50%);
+  display: none;
+}
+
+aside i.activated {
+  color: var(--primary) !important;
+}
+
+aside i.activated::after {
+  display: block !important;
+}
+
+.side_links i {
+  padding: 2rem 0;
+  position: relative;
+}
+
+.side_links {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10rem;
+}
+
+/* main styling */
+
+main {
+  width: 100%;
+  margin: 3rem;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-left {
+  color: var(--greydark);
+}
+
+.top-left h2,
+.city-row h2 {
+  font-size: 1.4rem;
+  color: var(--grey);
+  font-weight: 400;
+}
+
+.top-right {
+  background-color: #f6f6f6;
+  padding: 0.9rem 1.6rem;
+  border-radius: 100px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+.top-right input {
+  border: 2px solid transparent;
+  background-color: #f6f6f6;
+  width: 200px;
+  outline: none;
+}
+
+.top-right i {
+  padding-right: 1rem;
+  font-size: 1.4rem;
+  color: var(--greydark) !important;
+  cursor: pointer;
+}
+
+.top-right input::placeholder {
+  color: var(--greydark);
+}
+
+/* City row */
+/* -- City row -- */
+/* City row */
+
+.city-container {
+  position: relative;
+}
+
+.city-row {
+  background: var(--secondary);
+  border-radius: 2rem;
+  padding: 2rem 4rem;
+  margin-top: 4.2rem;
+  display: flex;
+  justify-content: space-between;
+  height: 250px;
+  transition: 0.3s;
+}
+
+.opacity-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  background: #bce4f741;
+  transition: 0.4s;
+}
+
+.loader-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  z-index: 999;
+}
+
+.loader-wrapper .loader {
+  width: 100%;
+  transition: 0.3s;
+}
+
+.guide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: max-content;
+  z-index: 99;
+  transition: 0.3s;
+}
+
+.guide h1 {
+  font-size: 3rem;
+  color: var(--greydark);
+}
+
+.guide-links {
+  display: flex;
+  align-items: center;
+}
+
+.guide-links button {
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  margin: 1rem;
+  display: block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.guide-links .location {
+  background: var(--primary);
+  color: var(--light);
+}
+
+.guide-links .location i {
+  margin-right: 0.3rem;
+}
+
+.city-col {
+  width: 35%;
+}
+
+.city-col img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: none;
+  margin: 0 0 0 auto;
+  transform: scale(1.2);
+  transform-origin: bottom;
+}
+
+.city-image-col {
+  display: flex;
+  justify-content: flex-end;
+  width: 70%;
+}
+
+.city-col h1 {
+  color: var(--greydark);
+  font-size: 3rem;
+}
+
+.city-col h2 {
+  font-size: 2rem;
+  margin: 0rem 0 5rem;
+}
+
+.city-col span {
+  display: block;
+  font-size: 3.6rem;
+  color: var(--greydark);
+}
+
+/* ----  weather section styling  ---- */
+
+.weather-section {
+  margin-top: 2rem;
+}
+
+.switch-days button {
+  color: var(--grey);
+  font-size: 1.5rem;
+  font-weight: 500;
+  position: relative;
+}
+.switch-days button::after {
+  content: "";
+  display: block;
+  width: 55%;
+  height: 2px;
+  background: var(--greydark);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: none;
+}
+
+.switch-days button.activated {
+  color: var(--greydark);
+}
+
+.switch-days button.activated::after {
+  display: block;
+}
+
+.switch-days :last-child {
+  margin-left: 1rem;
+}
+
+/*  */
+.switch-unit button {
+  text-align: center;
+  border: 1px solid var(--greylight);
+  padding: 0.3rem 0.4em;
+  border-radius: 100px;
+}
+
+.switch-unit button.activated {
+  border: none;
+  background: var(--primary);
+  color: var(--light);
+}
+
+.switch-unit :last-child {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.5rem;
+}
+
+/* weather row */
+/* weekly */
+.weather-row {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: 0.3s;
+}
+
+.weather-col {
+  flex-basis: 22.31%;
+  border-radius: 18px;
+  border: 1px solid #ccc;
+  color: var(--greydark);
+  padding: 1.2rem;
+  margin: 1rem;
+}
+
+.weather-col h1 {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  color: var(--greydark);
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.weather-col h1 small {
+  font-size: 1.2rem;
+  color: #777;
+  font-weight: 500;
+}
+
+.weather-col .flex > i {
+  font-size: 2rem;
+}
+
+.weather-col .l {
+  margin-top: 2.5rem;
+}
+
+.weather-col h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.weather-col h2 i {
+  margin-right: 0.5rem;
+  color: var(--primary);
+}
+
+.weather-col h3 {
+  font-size: 2.3rem;
+  font-weight: 500;
+  line-height: 0;
+}
+
+.weather-col .icon {
+  width: 40px;
+  height: 40px;
+}
+
+.weather-col .icon img {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.4);
+}
+
+.weather-col.activated {
+  border: 2px solid var(--primary);
+}
+
+.pop-up {
+  background: var(--secondary);
+  border-radius: 6px;
+  padding: 1.2rem 1.2rem 2rem 1rem;
+  position: absolute;
+  top: 4rem;
+  right: 0.5rem;
+  width: 30rem;
+  box-shadow: 5px 0px 10px #00000021;
+  z-index: 99;
+  transform: translateX(105%);
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.pop-up.active {
+  transform: translateX(0);
+}
+.pop-up.red {
+  background: var(--primary);
+  color: var(--light);
+}
+.pop-up.red h1 {
+  color: var(--light);
+}
+
+.pop-up h1 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--greydark);
+  display: flex;
+  align-items: center;
+}
+
+.pop-up h1 i {
+  font-size: 2.2rem;
+  margin-right: 1rem;
+}
+
+.pop-up p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
