@@ -315,6 +315,7 @@ const getUserDate = () => {
     months[d.getMonth()]
   } ${d.getFullYear()}`;
 };
+getUserDate();
 
 const getCountryName = (countryCode) => {
   if (isoCountries.hasOwnProperty(countryCode)) {
@@ -399,9 +400,7 @@ const getData = function (lat, lon, place, region) {
       currentNameEl.textContent = place;
       currentRegionEl.textContent = getCountryName(region);
       currentTempEl.innerHTML = Math.round(data.current.temp) + "<sup>°</sup>";
-      currentCityImageEl.src = `./resourse/countryVectors/${getCountryName(
-        region
-      )
+      currentCityImageEl.src = `./Assets/countryVectors/${getCountryName(region)
         .replaceAll(" ", "")
         .toLowerCase()}.min.png`;
       populateWeatherRow(data.daily);
@@ -445,7 +444,7 @@ const startLoader = function (stop = false) {
     currentNameEl.textContent = " ";
     currentTempEl.textContent = " ";
     currentRegionEl.textContent = " ";
-    currentCityImageEl.src = "./resourse/placeholder.png";
+    currentCityImageEl.src = "./Assets/placeholder.png";
     // For starting loader
   } else {
     loaderEl.classList.remove("hide");
@@ -477,7 +476,7 @@ currentCityImageEl.addEventListener("error", function () {
     "Kindly go on report page and report about the place you searched",
     true
   );
-  this.src = "./resourse/placeholder.png";
+  this.src = "./Assets/placeholder.png";
 });
 
 currentCityImageEl.addEventListener("load", (e) => {
