@@ -18,7 +18,7 @@ In this app you can search for a place or look for your current location to get 
 
 - Check for the weather data for current device location using geolocation api(Works well in devices which have accurate gps systems like smartphones).
 - Search for a place from anywhere and get the weather data and air quality and more.
-- Convert between Metric(Celsius) and Imperial(Farenheit) temprature mesurements.
+- Convert between Metric(Celsius) and Imperial(Farenheit) temprature measurement.
 - Minimal, Simple, Modern ui design for ease.
 
 ![screenshot](https://user-images.githubusercontent.com/93701964/160594667-8317a6dd-f79c-4e0e-9b28-1e4fba341ac1.jpg)
