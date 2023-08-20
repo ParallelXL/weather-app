@@ -12,7 +12,6 @@ This is a weather app used to see detailed weather data of anywhere from everywh
 
 ## Description
 
-<a href='https://weadher.vercel.app' target='_blank'>CHECK THIS PROJECT LIVE</a>
 In this app you can search for a place or look for your current location to get the data. The data includes Current temprature, Weekly temprature for 7 days, Sunrise and Sunset time, Humidity rate and air quality check: <a href='https://weadher.vercel.app' target='_blank'>Preveiw</a> OR <a href='https://ayannagori.vercel.app/' target='_blank'>check my portfolio for more projects</a>
 
 ## Features
