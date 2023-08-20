@@ -6,14 +6,14 @@
       />
 </p>
 
-# Weather app by <a target='_blank' href="https://ayannagori.netlify.app/">ParallelXL</a>
+# Weather app by <a target='_blank' href="https://ayannagori.vercel.app/">ParallelXL</a>
 
-This is a weather app used to see detailed weather data of anywhere from anywhere.
+This is a weather app used to see detailed weather data of anywhere from everywhere.
 
 ## Description
 
-<a href='https://weatherappxl.netlify.app/' target='_blank'>CHECK THIS PROJECT LIVE</a>
-In this app you can search for a place or look for your current location to get the data. The data includes Current temprature, Weekly temprature for 7 days, Sunrise and Sunset time, Humidity rate and air quality check: <a href='https://weather-app-by-ayan.netlify.app/' target='_blank'>Preveiw</a> OR <a href='https://ayannagori.netlify.app/' target='_blank'>check my portfolio for more projects</a>
+<a href='https://weadher.vercel.app' target='_blank'>CHECK THIS PROJECT LIVE</a>
+In this app you can search for a place or look for your current location to get the data. The data includes Current temprature, Weekly temprature for 7 days, Sunrise and Sunset time, Humidity rate and air quality check: <a href='https://weadher.vercel.app' target='_blank'>Preveiw</a> OR <a href='https://ayannagori.vercel.app/' target='_blank'>check my portfolio for more projects</a>
 
 ## Features
 
@@ -28,8 +28,7 @@ In this app you can search for a place or look for your current location to get 
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Please make sure to update tests as appropriate.
-Or come in <a target='_blank' href="https://discord.gg/XSbAp2X6d8">Discord</a> for further talk and collabration
 
 ## Authors and acknowledgment
 
-Hello 👋 I am Ayan Nagori, a frontend developer from India. I make modern and minimal websites. check my <a target='_blank' href="https://github.com/Ayannagori44">Github Profile</a> or <a target='_blank' href="https://ayannagori.netlify.app/">My Portfolio</a> to know more 😉.
+Hello 👋 I am Ayan Nagori, a frontend developer from India. I make modern and minimal websites. check my <a target='_blank' href="https://github.com/ParallelXL">Github Profile</a> or <a target='_blank' href="https://ayannagori.vercel.app/">My Portfolio</a> to know more 😉.
