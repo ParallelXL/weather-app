@@ -326,10 +326,10 @@ const getCountryName = (countryCode) => {
 };
 
 const convertTimestamp = (milli) => {
-  let datee = new Date(milli * 5000).toLocaleDateString("en-us", {
+  let convertedDate = new Date(milli * 5000).toLocaleDateString("en-us", {
     weekday: "long",
   });
-  return datee;
+  return convertedDate;
 };
 
 const convertToFaren = (celsi) => `${Math.round(celsi * 1.8 + 32)}<sup>°</sup>`;
