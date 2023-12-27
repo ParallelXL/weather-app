@@ -1,7 +1,10 @@
 "use strict";
 
+// importing static constant objects
+
+import { isoCountries, months, dayIds, days } from "./data.js";
+
 // Selecting elements
-const TodayEl = document.querySelector(".currentDate");
 const btnSearchEl = document.querySelector(".btn-search");
 const inputEl = document.querySelector("#search");
 const opacityBg = document.querySelector(".opacity-bg");
@@ -11,313 +14,27 @@ const currentRegionEl = document.querySelector(".city-region");
 const currentTempEl = document.querySelector(".temprature");
 const currentCityImageEl = document.querySelector(".city-image");
 const weatherRowEl = document.querySelector(".weather-row");
-const weatherColEl = document.querySelector(".weather-col");
-const switchDaysEl = document.querySelector(".switch-days");
 const switchUnitEl = document.querySelector(".switch-unit");
 const switchCelEl = document.querySelector(".cel");
 const switchFarEl = document.querySelector(".faren");
-const formEl = document.querySelector("form");
 const guideEl = document.querySelector(".guide");
-const guideLinksEl = document.querySelector(".guide-links");
-const btnFocusInputEl = document.querySelector(".F-input");
-const btnLocationEl = document.querySelector(".location");
+
+const FromCurLocationBtn = document.querySelector(".location");
 const popUpEl = document.querySelector(".pop-up");
-const popUpTitleEl = document.querySelector(".pop-up-title");
 const audioEl = document.querySelector("audio");
-const loaderEl = document.querySelector(".loader");
+const loaderEl = document.querySelector(".loader-wrapper");
 const d = new Date();
 
-let isoCountries = {
-  AF: "Afghanistan",
-  AX: "Aland Islands",
-  AL: "Albania",
-  DZ: "Algeria",
-  AS: "American Samoa",
-  AD: "Andorra",
-  AO: "Angola",
-  AI: "Anguilla",
-  AQ: "Antarctica",
-  AG: "Antigua And Barbuda",
-  AR: "Argentina",
-  AM: "Armenia",
-  AW: "Aruba",
-  AU: "Australia",
-  AT: "Austria",
-  AZ: "Azerbaijan",
-  BS: "Bahamas",
-  BH: "Bahrain",
-  BD: "Bangladesh",
-  BB: "Barbados",
-  BY: "Belarus",
-  BE: "Belgium",
-  BZ: "Belize",
-  BJ: "Benin",
-  BM: "Bermuda",
-  BT: "Bhutan",
-  BO: "Bolivia",
-  BA: "Bosnia And Herzegovina",
-  BW: "Botswana",
-  BV: "Bouvet Island",
-  BR: "Brazil",
-  IO: "British Indian Ocean Territory",
-  BN: "Brunei Darussalam",
-  BG: "Bulgaria",
-  BF: "Burkina Faso",
-  BI: "Burundi",
-  KH: "Cambodia",
-  CM: "Cameroon",
-  CA: "Canada",
-  CV: "Cape Verde",
-  KY: "Cayman Islands",
-  CF: "Central African Republic",
-  TD: "Chad",
-  CL: "Chile",
-  CN: "China",
-  CX: "Christmas Island",
-  CC: "Cocos (Keeling) Islands",
-  CO: "Colombia",
-  KM: "Comoros",
-  CG: "Congo",
-  CD: "Congo, Democratic Republic",
-  CK: "Cook Islands",
-  CR: "Costa Rica",
-  CI: "Cote D'Ivoire",
-  HR: "Croatia",
-  CU: "Cuba",
-  CY: "Cyprus",
-  CZ: "Czech Republic",
-  DK: "Denmark",
-  DJ: "Djibouti",
-  DM: "Dominica",
-  DO: "Dominican Republic",
-  EC: "Ecuador",
-  EG: "Egypt",
-  SV: "El Salvador",
-  GQ: "Equatorial Guinea",
-  ER: "Eritrea",
-  EE: "Estonia",
-  ET: "Ethiopia",
-  FK: "Falkland Islands (Malvinas)",
-  FO: "Faroe Islands",
-  FJ: "Fiji",
-  FI: "Finland",
-  FR: "France",
-  GF: "French Guiana",
-  PF: "French Polynesia",
-  TF: "French Southern Territories",
-  GA: "Gabon",
-  GM: "Gambia",
-  GE: "Georgia",
-  DE: "Germany",
-  GH: "Ghana",
-  GI: "Gibraltar",
-  GR: "Greece",
-  GL: "Greenland",
-  GD: "Grenada",
-  GP: "Guadeloupe",
-  GU: "Guam",
-  GT: "Guatemala",
-  GG: "Guernsey",
-  GN: "Guinea",
-  GW: "Guinea-Bissau",
-  GY: "Guyana",
-  HT: "Haiti",
-  HM: "Heard Island & Mcdonald Islands",
-  VA: "Holy See (Vatican City State)",
-  HN: "Honduras",
-  HK: "Hong Kong",
-  HU: "Hungary",
-  IS: "Iceland",
-  IN: "India",
-  ID: "Indonesia",
-  IR: "Iran, Islamic Republic Of",
-  IQ: "Iraq",
-  IE: "Ireland",
-  IM: "Isle Of Man",
-  IL: "Israel",
-  IT: "Italy",
-  JM: "Jamaica",
-  JP: "Japan",
-  JE: "Jersey",
-  JO: "Jordan",
-  KZ: "Kazakhstan",
-  KE: "Kenya",
-  KI: "Kiribati",
-  KR: "Korea",
-  KW: "Kuwait",
-  KG: "Kyrgyzstan",
-  LA: "Lao People's Democratic Republic",
-  LV: "Latvia",
-  LB: "Lebanon",
-  LS: "Lesotho",
-  LR: "Liberia",
-  LY: "Libyan Arab Jamahiriya",
-  LI: "Liechtenstein",
-  LT: "Lithuania",
-  LU: "Luxembourg",
-  MO: "Macao",
-  MK: "Macedonia",
-  MG: "Madagascar",
-  MW: "Malawi",
-  MY: "Malaysia",
-  MV: "Maldives",
-  ML: "Mali",
-  MT: "Malta",
-  MH: "Marshall Islands",
-  MQ: "Martinique",
-  MR: "Mauritania",
-  MU: "Mauritius",
-  YT: "Mayotte",
-  MX: "Mexico",
-  FM: "Micronesia, Federated States Of",
-  MD: "Moldova",
-  MC: "Monaco",
-  MN: "Mongolia",
-  ME: "Montenegro",
-  MS: "Montserrat",
-  MA: "Morocco",
-  MZ: "Mozambique",
-  MM: "Myanmar",
-  NA: "Namibia",
-  NR: "Nauru",
-  NP: "Nepal",
-  NL: "Netherlands",
-  AN: "Netherlands Antilles",
-  NC: "New Caledonia",
-  NZ: "New Zealand",
-  NI: "Nicaragua",
-  NE: "Niger",
-  NG: "Nigeria",
-  NU: "Niue",
-  NF: "Norfolk Island",
-  MP: "Northern Mariana Islands",
-  NO: "Norway",
-  OM: "Oman",
-  PK: "Pakistan",
-  PW: "Palau",
-  PS: "Palestinian Territory, Occupied",
-  PA: "Panama",
-  PG: "Papua New Guinea",
-  PY: "Paraguay",
-  PE: "Peru",
-  PH: "Philippines",
-  PN: "Pitcairn",
-  PL: "Poland",
-  PT: "Portugal",
-  PR: "Puerto Rico",
-  QA: "Qatar",
-  RE: "Reunion",
-  RO: "Romania",
-  RU: "Russian Federation",
-  RW: "Rwanda",
-  BL: "Saint Barthelemy",
-  SH: "Saint Helena",
-  KN: "Saint Kitts And Nevis",
-  LC: "Saint Lucia",
-  MF: "Saint Martin",
-  PM: "Saint Pierre And Miquelon",
-  VC: "Saint Vincent And Grenadines",
-  WS: "Samoa",
-  SM: "San Marino",
-  ST: "Sao Tome And Principe",
-  SA: "Saudi Arabia",
-  SN: "Senegal",
-  RS: "Serbia",
-  SC: "Seychelles",
-  SL: "Sierra Leone",
-  SG: "Singapore",
-  SK: "Slovakia",
-  SI: "Slovenia",
-  SB: "Solomon Islands",
-  SO: "Somalia",
-  ZA: "South Africa",
-  GS: "South Georgia And Sandwich Isl.",
-  ES: "Spain",
-  LK: "Sri Lanka",
-  SD: "Sudan",
-  SR: "Suriname",
-  SJ: "Svalbard And Jan Mayen",
-  SZ: "Swaziland",
-  SE: "Sweden",
-  CH: "Switzerland",
-  SY: "Syrian Arab Republic",
-  TW: "Taiwan",
-  TJ: "Tajikistan",
-  TZ: "Tanzania",
-  TH: "Thailand",
-  TL: "Timor-Leste",
-  TG: "Togo",
-  TK: "Tokelau",
-  TO: "Tonga",
-  TT: "Trinidad And Tobago",
-  TN: "Tunisia",
-  TR: "Turkey",
-  TM: "Turkmenistan",
-  TC: "Turks And Caicos Islands",
-  TV: "Tuvalu",
-  UG: "Uganda",
-  UA: "Ukraine",
-  AE: "United Arab Emirates",
-  GB: "United Kingdom",
-  US: "United States",
-  UM: "United States Outlying Islands",
-  UY: "Uruguay",
-  UZ: "Uzbekistan",
-  VU: "Vanuatu",
-  VE: "Venezuela",
-  VN: "Viet Nam",
-  VG: "Virgin Islands, British",
-  VI: "Virgin Islands, U.S.",
-  WF: "Wallis And Futuna",
-  EH: "Western Sahara",
-  YE: "Yemen",
-  ZM: "Zambia",
-  ZW: "Zimbabwe",
-};
-
-const months = [
-  "Janruary",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "Octobur",
-  "November",
-  "December",
-];
-
-const days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-const dayIds = {
-  Monday: 1,
-  Tuesday: 2,
-  Wednesday: 3,
-  Thursday: 4,
-  Friday: 5,
-  Saturday: 6,
-  Sunday: 7,
-};
-
+// Get current date and show in navbar
 const getUserDate = () => {
-  TodayEl.textContent = `${days[d.getDay()]} ${d.getDate()}, ${
-    months[d.getMonth()]
-  } ${d.getFullYear()}`;
+  document.querySelector(".currentDate").textContent = `${
+    days[d.getDay()]
+  } ${d.getDate()}, ${months[d.getMonth()]} ${d.getFullYear()}`;
 };
 getUserDate();
 
-const getCountryName = (countryCode) => {
+// Convert ISO country to full country name eg: IN = INDIA
+const ConvertIsoCountry = (countryCode) => {
   if (isoCountries.hasOwnProperty(countryCode)) {
     return isoCountries[countryCode];
   } else {
@@ -325,6 +42,7 @@ const getCountryName = (countryCode) => {
   }
 };
 
+// Convert TimeStamp to actual data eg: 1703659740 = 27/12/2023
 const convertTimestamp = (milli) => {
   let convertedDate = new Date(milli * 5000).toLocaleDateString("en-us", {
     weekday: "long",
@@ -332,10 +50,12 @@ const convertTimestamp = (milli) => {
   return convertedDate;
 };
 
+// Convert Celsius to Farenhiet and vice verca
 const convertToFaren = (celsi) => `${Math.round(celsi * 1.8 + 32)}<sup>°</sup>`;
 const convertToCelsi = (faren) =>
   `${Math.round((faren - 32) / 1.8)}<sup>°</sup>`;
 
+// Show pop up on error with audio
 const showPopUp = function (title, msg, isError = false) {
   popUpEl.innerHTML = `
   <h1 class='pop-up-title'><i class="fa-solid fa-circle-exclamation"></i> ${title}</h1>
@@ -355,14 +75,18 @@ const showPopUp = function (title, msg, isError = false) {
   }, 5000);
 };
 
+// Show weather row using the weekly data
 const populateWeatherRow = function (week) {
   week.pop();
+
   week.forEach((current) => {
     current.dt = convertTimestamp(current.dt);
   });
+
   week.sort((a, b) => {
     return dayIds[a.dt] - dayIds[b.dt];
   });
+
   week.forEach((current) => {
     let html = `
     <div class="weather-col ${
@@ -390,17 +114,20 @@ const populateWeatherRow = function (week) {
   });
 };
 
+// Get and show Data on search
 const getData = function (lat, lon, place, region) {
-  const data = fetch(
+  fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=f1b7ba7a47f863080257931892975f3a`
   )
     .then((r) => r.json())
     .then((data) => {
       // Show current data
       currentNameEl.textContent = place;
-      currentRegionEl.textContent = getCountryName(region);
+      currentRegionEl.textContent = ConvertIsoCountry(region);
       currentTempEl.innerHTML = Math.round(data.current.temp) + "<sup>°</sup>";
-      currentCityImageEl.src = `./Assets/countryVectors/${getCountryName(region)
+      currentCityImageEl.src = `./Assets/countryVectors/${ConvertIsoCountry(
+        region
+      )
         .replaceAll(" ", "")
         .toLowerCase()}.min.png`;
       populateWeatherRow(data.daily);
@@ -409,10 +136,10 @@ const getData = function (lat, lon, place, region) {
 
 const searchPlace = function (place) {
   if (place) {
-    const data = fetch(
+    fetch(
       `https://api.openweathermap.org/geo/1.0/direct?q=${place}&limit=5&appid=f1b7ba7a47f863080257931892975f3a`
     )
-      .then((r) => r.json())
+      .then((response) => response.json())
       .then((data) => {
         let { lat, lon, country, name } = data[0];
         getData(lat, lon, name, country);
@@ -430,47 +157,64 @@ const searchPlace = function (place) {
   }
 };
 
-const startLoader = function (stop = false) {
-  // For stoping loader
-  if (stop) {
-    loaderEl.classList.add("hide");
-    opacityBg.classList.add("hide");
-    cityRowEl.classList.remove("hide");
-    guideEl.classList.remove("hide");
-    weatherRowEl.classList.remove("hide");
+const ToggleLoaderWeatherRow = (opposite) => {
+  // Hide Loader show weather row
+  if (opposite) {
+    loaderEl.classList.remove("hide");
+    opacityBg.classList.remove("hide");
+    weatherRowEl.classList.add("hide");
+    cityRowEl.classList.add("hide");
+    return;
+  }
 
+  // Show loader Loader Hide weather row
+
+  loaderEl.classList.add("hide");
+  opacityBg.classList.add("hide");
+  weatherRowEl.classList.remove("hide");
+  cityRowEl.classList.remove("hide");
+};
+
+const startLoader = function (status = false) {
+  if (status) {
+    // If status is false then stop/hide the loader
+    ToggleLoaderWeatherRow(true);
+
+    cityRowEl.classList.remove("hide");
     weatherRowEl.innerHTML = " ";
     inputEl.value = " ";
     currentNameEl.textContent = " ";
     currentTempEl.textContent = " ";
     currentRegionEl.textContent = " ";
     currentCityImageEl.src = "./Assets/placeholder.png";
-    // For starting loader
   } else {
+    // If status is true then start/show the loader
     loaderEl.classList.remove("hide");
     opacityBg.classList.remove("hide");
     cityRowEl.classList.add("hide");
     weatherRowEl.classList.add("hide");
   }
 };
+
+currentCityImageEl.addEventListener("onMouseDown", (e) => {
+  e.preventDefault();
+  return false;
+});
+
 //
-//
-// EVENTS
-//
+// _________ EventListeners _________
 //
 
-btnSearchEl.addEventListener("click", (e) => {
+document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
   startLoader();
   guideEl.classList.add("hide");
   searchPlace(inputEl.value);
 });
 
+// Turn on loader if the image has an error and show audio popUp
 currentCityImageEl.addEventListener("error", function () {
-  opacityBg.classList.add("hide");
-  loaderEl.classList.add("hide");
-  cityRowEl.classList.remove("hide");
-  weatherRowEl.classList.remove("hide");
-
+  ToggleLoaderWeatherRow(opposite);
   showPopUp(
     "Image not found",
     "Kindly go on report page and report about the place you searched",
@@ -479,20 +223,18 @@ currentCityImageEl.addEventListener("error", function () {
   this.src = "./Assets/placeholder.png";
 });
 
-currentCityImageEl.addEventListener("load", (e) => {
-  loaderEl.classList.add("hide");
-  opacityBg.classList.add("hide");
-  weatherRowEl.classList.remove("hide");
-  cityRowEl.classList.remove("hide");
+// Turn on loader while the image is loading
+currentCityImageEl.addEventListener("load", () => {
+  ToggleLoaderWeatherRow();
 });
 
-btnLocationEl.addEventListener("click", (e) => {
+FromCurLocationBtn.addEventListener("click", (e) => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   }
 
   function showPosition(position) {
-    const data = fetch(
+    fetch(
       `https://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&limit=5&appid=f1b7ba7a47f863080257931892975f3a`
     )
       .then((r) => r.json())
@@ -543,6 +285,7 @@ switchUnitEl.addEventListener("click", function (e) {
   }
 });
 
+// Add and remove border on if focused
 inputEl.addEventListener(
   "focusin",
   () =>
@@ -556,5 +299,6 @@ inputEl.addEventListener(
       "2px solid transparent")
 );
 
-formEl.addEventListener("submit", (e) => e.preventDefault());
-btnFocusInputEl.addEventListener("click", (e) => inputEl.focus());
+// Focus Input when we click on SEARCH FOR THE PLACE btn
+const btnFocusInputEl = document.querySelector(".F-input");
+btnFocusInputEl.addEventListener("click", () => inputEl.focus());
