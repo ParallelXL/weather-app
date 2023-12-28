@@ -12,31 +12,42 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./Assets/logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Forcast</title>
+
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/sidebar.css" />
+    <link rel="stylesheet" href="./styles/aside.css" />
+    <link rel="stylesheet" href="./styles/global.css" />
+
+    <title>Weadher Forcast</title>
   </head>
   <body>
-    <header class="wrapper">
+    <header>
+      <!-- _______ 1. Aside _______ -->
       <aside>
         <div class="logo">
           <img src="./Assets/logo.png" alt="" />
         </div>
 
-        <div class="side_links">
+        <div class="nav-links">
           <i class="fa fa-house activated"></i>
           <i class="fa fa-gears"></i>
           <i class="fa fa-location-dot"></i>
         </div>
+
+        <div class="logout">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </div>
       </aside>
 
+      <!-- _______ 2. Main _______ -->
       <main>
         <nav>
           <div>
             <h1>Weather Forcast</h1>
             <h2 class="currentDate">Saturday 26, December 2020</h2>
           </div>
-          <form class="top-right">
-            <button type="submit" class="btn-search">
+          <form>
+            <button type="submit">
               <i class="fa fa-search"></i>
             </button>
             <input type="text" placeholder="Search" id="search" />
@@ -44,34 +55,40 @@
         </nav>
 
         <div class="city-container">
-          <div class="opacity-bg hide"></div>
-          <div class="loader-wrapper hide">
-            <img class="loader" src="./Assets/loader.gif" alt="LOADER" />
-          </div>
           <div class="city-row">
+            <!-- Search Guide -->
             <div class="guide">
               <h1>Get weather</h1>
               <div class="guide-links">
-                <button class="F-input">Search For the place</button>
+                <button class="focus-input">Search For the place</button>
                 <button class="location">
                   <i class="fa-solid fa-location-crosshairs"></i> From current
                   location
                 </button>
               </div>
             </div>
+
+            <!-- Weather Details column -->
             <div class="city-col">
               <h1 class="city-name"></h1>
               <h2 class="city-region"></h2>
               <span class="temprature"></span>
             </div>
+
             <div class="city-col city-image-col">
               <img class="city-image" src="./Assets/placeholder.png" />
             </div>
           </div>
+
+          <div class="loader-wrapper hide">
+            <img class="loader" src="./Assets/loader.gif" alt="LOADER" />
+          </div>
+          <div class="opacity-bg hide"></div>
         </div>
 
         <section class="weather-section">
-          <nav class="weather-nav flex">
+          <!-- Weekly weather row -->
+          <div class="weather-nav flex">
             <div class="switch-days flex">
               <button>Today</button>
               <button class="activated">Week</button>
@@ -80,17 +97,79 @@
               <button class="cel activated">°C</button>
               <button class="faren">°F</button>
             </div>
-          </nav>
+          </div>
+
+          <!-- Daily weather row -->
           <div class="weather-row for-today">
             <div class="weather-col-today"></div>
           </div>
         </section>
+
+        <footer>
+          <h1>Today's Highlight</h1>
+          <div class="footer-row">
+            <div class="footer-col">
+              <img src="Assets/sun.svg" alt="sun" />
+              <h2>Sunrise & Sunset</h2>
+
+              <ul>
+                <img src="Assets/arrow-up.svg" alt="Arrow up" />
+
+                <li>
+                  <h5>5:50 AM</h5>
+                  <p>+1m 20s</p>
+                </li>
+                <img src="Assets/arrow-down.svg" alt="Arrow down" />
+
+                <li>
+                  <h5>5:25 PM</h5>
+                  <p>+1m 20s</p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <img src="Assets/temp.svg" alt="temprature" />
+              <h2>Temperature</h2>
+
+              <ul>
+                <img src="Assets/arrow-up.svg" alt="Arrow up" />
+
+                <li>
+                  <h5>5:50 AM</h5>
+                  <p>+1m 20s</p>
+                </li>
+                <img src="Assets/arrow-down.svg" alt="Arrow down" />
+
+                <li>
+                  <h5>5:25 PM</h5>
+                  <p>+1m 20s</p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <img src="Assets/wind.svg" alt="temprature" />
+              <h2>Air Quality Index</h2>
+
+              <div class="air-quality">
+                <p>US AQI <span>95*</span></p>
+                <p>Moderate</p>
+              </div>
+            </div>
+          </div>
+        </footer>
       </main>
+
+      <!-- _______ 3. SideBar _______ -->
+      <section class="sidebar">
+        <h1>SIDEBAR</h1>
+      </section>
     </header>
 
     <audio src="./Assets/pop-sound.wav"></audio>
     <div class="pop-up"></div>
-    <script type="module" src="main.js"></script>
-    <script type="module" src="data.js"></script>
+    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/data.js"></script>
   </body>
 </html>

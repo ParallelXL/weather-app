@@ -5,7 +5,7 @@
 import { isoCountries, months, dayIds, days } from "./data.js";
 
 // Selecting elements
-const btnSearchEl = document.querySelector(".btn-search");
+const formEl = document.querySelector("form");
 const inputEl = document.querySelector("#search");
 const opacityBg = document.querySelector(".opacity-bg");
 const cityRowEl = document.querySelector(".city-row");
@@ -205,7 +205,7 @@ currentCityImageEl.addEventListener("onMouseDown", (e) => {
 // _________ EventListeners _________
 //
 
-document.querySelector("form").addEventListener("submit", (e) => {
+formEl.addEventListener("submit", (e) => {
   e.preventDefault();
   startLoader();
   guideEl.classList.add("hide");
@@ -288,17 +288,13 @@ switchUnitEl.addEventListener("click", function (e) {
 // Add and remove border on if focused
 inputEl.addEventListener(
   "focusin",
-  () =>
-    (document.querySelector(".top-right").style.border =
-      "2px solid var(--primary)")
+  () => (formEl.style.border = "2px solid var(--primary)")
 );
 inputEl.addEventListener(
   "focusout",
-  () =>
-    (document.querySelector(".top-right").style.border =
-      "2px solid transparent")
+  () => (formEl.style.border = "2px solid transparent")
 );
 
-// Focus Input when we click on SEARCH FOR THE PLACE btn
-const btnFocusInputEl = document.querySelector(".F-input");
+// Focus Input when we click on `SEARCH FOR THE PLACE` btn
+const btnFocusInputEl = document.querySelector(".focus-input");
 btnFocusInputEl.addEventListener("click", () => inputEl.focus());
