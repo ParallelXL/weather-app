@@ -1,5 +1,5 @@
 aside {
-  width: 8rem;
+  width: 115px;
   padding: 3rem 0;
   box-shadow: 10px 2px 50px rgba(0, 0, 0, 0.06);
   display: flex;
@@ -18,14 +18,14 @@ aside {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 8rem;
+  gap: 2rem;
+  margin-top: 12rem;
 }
 
 aside i {
   position: relative;
   color: var(--grey);
-  padding: 2rem 0;
+  padding: 2rem;
   font-size: 1.5rem;
   align-items: center;
   cursor: pointer;
@@ -33,12 +33,12 @@ aside i {
 
 aside i::after {
   content: "";
-  display: none;
-  width: 3px;
-  height: 100%;
   background-color: var(--primary);
+  display: none;
+  height: 100%;
+  width: 5px;
   position: absolute;
-  left: -30px;
+  left: -20px;
   top: 50%;
   translate: 0 -50%;
 }

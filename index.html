@@ -41,11 +41,13 @@
 
       <!-- _______ 2. Main _______ -->
       <main>
-        <nav>
+        <nav class="flex">
           <div>
             <h1>Weather Forcast</h1>
             <h2 class="currentDate">Saturday 26, December 2020</h2>
           </div>
+
+          <!-- Search Country Input -->
           <form>
             <button type="submit">
               <i class="fa fa-search"></i>
@@ -54,32 +56,33 @@
           </form>
         </nav>
 
-        <div class="city-container">
-          <div class="city-row">
-            <!-- Search Guide -->
-            <div class="guide">
-              <h1>Get weather</h1>
-              <div class="guide-links">
-                <button class="focus-input">Search For the place</button>
-                <button class="location">
-                  <i class="fa-solid fa-location-crosshairs"></i> From current
-                  location
-                </button>
-              </div>
-            </div>
-
-            <!-- Weather Details column -->
-            <div class="city-col">
-              <h1 class="city-name"></h1>
-              <h2 class="city-region"></h2>
-              <span class="temprature"></span>
-            </div>
-
-            <div class="city-col city-image-col">
-              <img class="city-image" src="./Assets/placeholder.png" />
+        <div class="city-row flex">
+          <!-- Search Guide -->
+          <div class="guide">
+            <h1>Get weather</h1>
+            <div class="guide-links flex">
+              <button class="focus-input">Search Manually</button>
+              <button class="location">
+                <i class="fa-solid fa-location-crosshairs"></i> Use Current
+                Location
+              </button>
             </div>
           </div>
 
+          <!-- Weather Details column -->
+          <div class="city-col">
+            <div>
+              <h1 class="city-name"></h1>
+              <h2 class="city-region"></h2>
+            </div>
+            <span class="temprature"></span>
+          </div>
+
+          <div class="city-image-col">
+            <img class="city-image" src="./Assets/placeholder.png" />
+          </div>
+
+          <!-- Loader -->
           <div class="loader-wrapper hide">
             <img class="loader" src="./Assets/loader.gif" alt="LOADER" />
           </div>
@@ -88,7 +91,7 @@
 
         <section class="weather-section">
           <!-- Weekly weather row -->
-          <div class="weather-nav flex">
+          <nav class="weather-nav flex">
             <div class="switch-days flex">
               <button>Today</button>
               <button class="activated">Week</button>
@@ -97,7 +100,7 @@
               <button class="cel activated">°C</button>
               <button class="faren">°F</button>
             </div>
-          </div>
+          </nav>
 
           <!-- Daily weather row -->
           <div class="weather-row for-today">
@@ -109,7 +112,7 @@
           <h1>Today's Highlight</h1>
           <div class="footer-row">
             <div class="footer-col">
-              <img src="Assets/sun.svg" alt="sun" />
+              <i class="fa-regular fa-sun"></i>
               <h2>Sunrise & Sunset</h2>
 
               <ul>
@@ -129,18 +132,17 @@
             </div>
 
             <div class="footer-col">
-              <img src="Assets/temp.svg" alt="temprature" />
+              <i class="fa-solid fa-temperature-full"></i>
               <h2>Temperature</h2>
 
               <ul>
-                <img src="Assets/arrow-up.svg" alt="Arrow up" />
-
+                <i class="fa-solid fa-arrow-up-long"></i>
                 <li>
                   <h5>5:50 AM</h5>
                   <p>+1m 20s</p>
                 </li>
-                <img src="Assets/arrow-down.svg" alt="Arrow down" />
 
+                <i class="fa-solid fa-arrow-down-long"></i>
                 <li>
                   <h5>5:25 PM</h5>
                   <p>+1m 20s</p>
@@ -149,7 +151,7 @@
             </div>
 
             <div class="footer-col">
-              <img src="Assets/wind.svg" alt="temprature" />
+              <i class="fa-solid fa-wind"></i>
               <h2>Air Quality Index</h2>
 
               <div class="air-quality">

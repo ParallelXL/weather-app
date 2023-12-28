@@ -16,8 +16,7 @@ html {
   --yellow: #fedc5f;
 
   --light: #fff;
-  --grey: #929292;
-  --greylight: #b5a5ad;
+  --grey: #8a8a8a;
   --greydark: #5f5653;
 }
 
@@ -64,7 +63,17 @@ header {
   margin: 0 auto;
   display: flex;
   overflow: hidden;
-  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--greydark);
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 /* ____________ POP UP ____________ */
@@ -82,13 +91,16 @@ header {
   transform: translateX(100%);
   transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .pop-up.active {
   transform: translateX(-15px);
 }
+
 .pop-up.red {
   background: var(--primary);
   color: var(--light);
 }
+
 .pop-up.red h1 {
   color: var(--light);
 }
@@ -110,3 +122,5 @@ header {
   font-size: 1.2rem;
   font-weight: 500;
 }
+
+/* Change after 1100px */
