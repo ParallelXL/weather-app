@@ -217,8 +217,8 @@ form input::placeholder {
 .weather-col {
   margin: 0.5rem;
   width: 23%;
-  border-radius: 2rem;
-  border: 1px solid #ccc;
+  border-radius: 1.5rem;
+  border: 1px solid #eee;
   color: var(--greydark);
   padding: 1.2rem;
 }
@@ -229,12 +229,12 @@ form input::placeholder {
   line-height: 1.2;
   color: var(--greydark);
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .weather-col h1 small {
-  font-size: 1.2rem;
-  color: #777;
+  font-size: 1rem;
+  color: var(--grey);
   font-weight: 500;
 }
 

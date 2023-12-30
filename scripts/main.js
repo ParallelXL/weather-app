@@ -76,37 +76,33 @@ const showPopUp = function (title, msg, isError = false) {
 };
 
 // Show weather row using the weekly data
-const populateWeatherRow = function (week) {
-  week.pop();
+const populateWeatherRow = function (weeklyData) {
+  weeklyData.pop();
 
-  week.forEach((current) => {
+  weeklyData.forEach((current) => {
     current.dt = convertTimestamp(current.dt);
   });
 
-  week.sort((a, b) => {
+  weeklyData.sort((a, b) => {
     return dayIds[a.dt] - dayIds[b.dt];
   });
 
-  week.forEach((current) => {
+  weeklyData.forEach(({ dt, weather, wind_speed, humidity, temp }) => {
     let html = `
-    <div class="weather-col ${
-      current.dt === days[d.getDay()] ? "activated" : ""
-    }">
+    <div class="weather-col ${dt === days[d.getDay()] ? "activated" : ""}">
       <div class="flex">
-      <h1>${current.dt}<small>${current.weather[0].description}</small></h1>
+      <h1>${dt}<small>${weather[0].description}</small></h1>
       <div class='icon'>
-       <img src="https://openweathermap.org/img/wn/${
-         current.weather[0].icon
-       }@2x.png">
+       <img src="https://openweathermap.org/img/wn/${weather[0].icon}@2x.png">
       </div>
 
       </div>
       <div class="flex">
         <div class="l">
-          <h2><i class="fa fa-wind"></i>${current.wind_speed}km/h</h2>
-          <h2><i class="fa fa-spa"></i>${current.humidity}%</h2>
+          <h2><i class="fa fa-wind"></i>${wind_speed}km/h</h2>
+          <h2><i class="fa fa-spa"></i>${humidity}%</h2>
         </div>
-        <h3 class='temp'>${Math.round(current.temp.day)}<sup>°</sup></h3>
+        <h3 class='temp'>${Math.round(temp.day)}<sup>°</sup></h3>
       </div>
     </div>
     `;
@@ -131,6 +127,14 @@ const getData = function (lat, lon, place, region) {
         .replaceAll(" ", "")
         .toLowerCase()}.min.png`;
       populateWeatherRow(data.daily);
+    })
+    .catch(() => {
+      showPopUp(
+        "Unable to find the data",
+        `Cant search for countries check the spelling, Try searching for place or use current place feature, or report about this in report page`,
+        true
+      );
+      toggleLoader(true);
     });
 };
 
@@ -152,7 +156,7 @@ const searchPlace = function (place) {
           `Cant search for countries check the spelling, Try searching for place or use current place feature, or report about this in report page`,
           true
         );
-        startLoader(true);
+        toggleLoader(true);
       });
   }
 };
@@ -175,7 +179,7 @@ const ToggleLoaderWeatherRow = (opposite) => {
   cityRowEl.classList.remove("hide");
 };
 
-const startLoader = function (status = false) {
+const toggleLoader = function (status = false) {
   if (status) {
     // If status is false then stop/hide the loader
     ToggleLoaderWeatherRow(true);
@@ -207,7 +211,7 @@ currentCityImageEl.addEventListener("onMouseDown", (e) => {
 
 formEl.addEventListener("submit", (e) => {
   e.preventDefault();
-  startLoader();
+  toggleLoader();
   guideEl.classList.add("hide");
   searchPlace(inputEl.value);
 });
@@ -239,7 +243,7 @@ FromCurLocationBtn.addEventListener("click", (e) => {
     )
       .then((r) => r.json())
       .then((data) => {
-        startLoader();
+        toggleLoader();
         guideEl.classList.add("hide");
         let { lat, lon, country, name } = data[0];
         getData(lat, lon, name, country);
