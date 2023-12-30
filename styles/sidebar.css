@@ -3,3 +3,143 @@
   width: 30%;
   background: #fafafa;
 }
+
+ul {
+  list-style-type: none;
+}
+.calender {
+  margin-top: -2rem;
+  width: 100%;
+  height: max-content;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.month {
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 12.6%;
+  color: #f04c8c;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 12.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 600;
+}
+
+.days li .active {
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: #fedc5f;
+}
+
+.subscribe {
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding: 1rem 2rem;
+  gap: 1rem;
+}
+
+.subscribe img {
+  width: 3rem;
+}
+.subscribe p {
+  margin: 1rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f04c8c;
+}
+.app {
+  margin-top: 3rem;
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.app_png {
+  border-radius: 10px;
+  border: 2px solid #f04c8c;
+  margin: 2rem;
+  width: 200px;
+  height: 200px;
+}
+.right_side {
+  width: 100%;
+  display: block;
+  margin: 1rem;
+  margin-top: 2rem;
+}
+.right_side h3 {
+  font-weight: 700;
+  font-size: 10px;
+}
+.right_side p {
+  font-size: 7px;
+  opacity: 0.4;
+}
+.right_side img {
+  width: 100px;
+}
+.add_city {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  background-color: #ec9633;
+  margin-top: 2rem;
+}
+.add_city img {
+  width: 70%;
+}
