@@ -10,9 +10,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./Assets/logo.png" type="image/x-icon" />
 
+    <link rel="stylesheet" href="./styles/calendarComponent.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/sidebar.css" />
     <link rel="stylesheet" href="./styles/aside.css" />
@@ -21,6 +27,13 @@
     <title>Weadher Forcast</title>
   </head>
   <body>
+    <!-- <dotlottie-player
+      src="https://lottie.host/7183c6e5-0272-456a-b317-a77f56eac84f/j71oBjHjbV.lottie"
+      background="transparent"
+      speed="2"
+      style="width: 300px; height: 300px"
+      loop
+    ></dotlottie-player> -->
     <header>
       <!-- _______ 1. Aside _______ -->
       <aside>
@@ -91,11 +104,12 @@
 
         <section class="weather-section">
           <!-- Weekly weather row -->
-          <nav class="weather-nav flex">
+          <nav class="flex">
             <div class="switch-days flex">
               <button>Today</button>
               <button class="activated">Week</button>
             </div>
+
             <div class="switch-unit flex">
               <button class="cel activated">°C</button>
               <button class="faren">°F</button>
@@ -108,22 +122,23 @@
 
         <footer>
           <h1>Today's Highlight</h1>
+
           <div class="footer-row">
             <div class="footer-col">
               <i class="fa-regular fa-sun"></i>
-              <h2>Sunrise & Sunset</h2>
+              <h3>Sunrise & Sunset</h3>
 
-              <ul>
-                <img src="Assets/arrow-up.svg" alt="Arrow up" />
+              <ul class="flex">
+                <i class="fa-solid fa-arrow-up-long"></i>
 
-                <li>
-                  <h5>5:50 AM</h5>
+                <li class="flex">
+                  <span>5:50 AM</span>
                   <p>+1m 20s</p>
                 </li>
-                <img src="Assets/arrow-down.svg" alt="Arrow down" />
+                <i class="fa-solid fa-arrow-down-long"></i>
 
-                <li>
-                  <h5>5:25 PM</h5>
+                <li class="flex">
+                  <span>5:25 PM</span>
                   <p>+1m 20s</p>
                 </li>
               </ul>
@@ -131,18 +146,18 @@
 
             <div class="footer-col">
               <i class="fa-solid fa-temperature-full"></i>
-              <h2>Temperature</h2>
+              <h3>Temperature</h3>
 
-              <ul>
+              <ul class="flex">
                 <i class="fa-solid fa-arrow-up-long"></i>
-                <li>
-                  <h5>5:50 AM</h5>
+                <li class="flex">
+                  <span>5:50 AM</span>
                   <p>+1m 20s</p>
                 </li>
 
                 <i class="fa-solid fa-arrow-down-long"></i>
-                <li>
-                  <h5>5:25 PM</h5>
+                <li class="flex">
+                  <span>5:25 PM</span>
                   <p>+1m 20s</p>
                 </li>
               </ul>
@@ -150,11 +165,11 @@
 
             <div class="footer-col">
               <i class="fa-solid fa-wind"></i>
-              <h2>Air Quality Index</h2>
+              <h3>Air Quality Index</h3>
 
-              <div class="air-quality">
+              <div class="air-quality flex">
                 <p>US AQI <span>95*</span></p>
-                <p>Moderate</p>
+                <h4>Moderate</h4>
               </div>
             </div>
           </div>
@@ -163,66 +178,57 @@
 
       <!-- _______ 3. SideBar _______ -->
       <section class="sidebar">
-        <div class="calender">
-          <div class="month">
-            <p>December</p>
+        <nav class="sidebar-navigation flex">
+          <div class="flex">
+            <div class="icon-container">
+              <i class="fa-regular fa-message"></i>
+            </div>
+
+            <div class="icon-container">
+              <i class="fa-regular fa-bell"></i>
+            </div>
           </div>
 
-          <ul class="weekdays">
-            <li>Mon</li>
-            <li>Tue</li>
-            <li>Wed</li>
-            <li>Thu</li>
-            <li>Fri</li>
-            <li>Sat</li>
-            <li>Sun</li>
-          </ul>
+          <div class="icon-container">
+            <i class="fa-regular fa-user"></i>
+          </div>
+        </nav>
 
-          <ul class="days">
-            <li></li>
-            <li></li>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-            <li>11</li>
-            <li>12</li>
-            <li>13</li>
-            <li>14</li>
-            <li>15</li>
-            <li>16</li>
-            <li>17</li>
-            <li>18</li>
-            <li>19</li>
-            <li>20</li>
-            <li>21</li>
-            <li>22</li>
-            <li>23</li>
-            <li>24</li>
-            <li>25</li>
-            <li>26</li>
-            <li>27</li>
-            <li>28</li>
-            <li><span class="active">29</span></li>
-            <li>30</li>
-            <li>31</li>
-          </ul>
+        <div class="calendar-container">
+          <header class="calendar-header">
+            <p class="calendar-current-date"></p>
+            <div class="calendar-navigation">
+              <span id="calendar-prev" class="material-symbols-rounded">
+                <i class="fa-solid fa-chevron-left"></i>
+              </span>
+
+              <span id="calendar-next" class="material-symbols-rounded">
+                <i class="fa-solid fa-chevron-right"></i>
+              </span>
+            </div>
+          </header>
+          <div class="calendar-body">
+            <ul class="calendar-weekdays">
+              <li>Sun</li>
+              <li>Mon</li>
+              <li>Tue</li>
+              <li>Wed</li>
+              <li>Thu</li>
+              <li>Fri</li>
+              <li>Sat</li>
+            </ul>
+            <ul class="calendar-dates"></ul>
+          </div>
         </div>
 
-        <div class="subscribe">
+        <article class="flex">
           <img src="Assets/plane.svg" alt="" />
-          <p>Subscribe to our newsletter</p>
-        </div>
+          <h3>Subscribe to our newsletter</h3>
+        </article>
 
-        <div class="app">
-          <img src="Assets/app.png" class="app_png" alt="" />
-          <div class="right_side">
+        <div class="advertise-app">
+          <img src="Assets/app.png" alt="" />
+          <div>
             <h3>Get Our weather app on your Devices!</h3>
             <p>get your weather app on your mobile</p>
             <img src="Assets/google-play.svg" alt="" />
@@ -235,9 +241,10 @@
       </section>
     </header>
 
-    <audio src="./Assets/pop-sound.wav"></audio>
     <div class="pop-up"></div>
-    <script type="module" src="./scripts/main.js"></script>
+    <audio src="./Assets/pop-sound.wav"></audio>
+    <script type="module" src="./scripts/calendar.js"></script>
     <script type="module" src="./scripts/data.js"></script>
+    <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>
