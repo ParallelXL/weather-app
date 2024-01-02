@@ -24,23 +24,23 @@ const months = [
 // function to generate the calendar
 const manipulate = () => {
   // get the first day of the month
-  let dayone = new Date(year, month, 1).getDay();
+  // let dayone = new Date(year, month, 1).getDay();
 
   // get the last date of the month
   let lastdate = new Date(year, month + 1, 0).getDate();
 
   // get the day of the last date of the month
-  let dayend = new Date(year, month, lastdate).getDay();
+  // let dayend = new Date(year, month, lastdate).getDay();
 
   // get the last date of the previous month
-  let monthlastdate = new Date(year, month, 0).getDate();
+  // let monthlastdate = new Date(year, month, 0).getDate();
 
   let lit = ""; // variable to store the generated calendar HTML
 
   // loop to add the last dates of the previous month
-  for (let i = dayone; i > 0; i--) {
-    lit += `<li class="inactive">${monthlastdate - i + 1}</li>`;
-  }
+  // for (let i = dayone; i > 0; i--) {
+  //   lit += `<li class="inactive">${monthlastdate - i + 1}</li>`;
+  // }
 
   // loop to add the dates of the current month
   for (let i = 1; i <= lastdate; i++) {
@@ -55,9 +55,9 @@ const manipulate = () => {
   }
 
   // loop to add the first dates of the next month
-  for (let i = dayend; i < 6; i++) {
-    lit += `<li class="inactive">${i - dayend + 1}</li>`;
-  }
+  // for (let i = dayend; i < 6; i++) {
+  //   lit += `<li class="inactive">${i - dayend + 1}</li>`;
+  // }
 
   // update the text of the current date element with the formatted current month and year
   currdate.innerText = `${months[month]} ${year}`;

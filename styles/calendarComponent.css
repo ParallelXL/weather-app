@@ -3,6 +3,7 @@
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  height: 25rem;
 }
 
 .calendar-container header {
@@ -12,34 +13,11 @@
   justify-content: space-between;
 }
 
-header .calendar-navigation {
-  display: flex;
-}
-
-header .calendar-navigation span {
-  height: 38px;
-  width: 38px;
-  margin: 0 1px;
-  cursor: pointer;
-  text-align: center;
-  line-height: 38px;
-  border-radius: 50%;
-  user-select: none;
-  color: #aeabab;
-  font-size: 1.9rem;
-}
-
-.calendar-navigation span:last-child {
-  margin-right: -10px;
-}
-
-header .calendar-navigation span:hover {
-  background: #f2f2f2;
-}
-
 header .calendar-current-date {
-  font-weight: 500;
-  font-size: 1.45rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-top: -3rem;
+  margin-bottom: 1rem;
 }
 
 .calendar-body {
@@ -54,22 +32,23 @@ header .calendar-current-date {
 }
 
 .calendar-body .calendar-dates {
-  margin-bottom: 20px;
+  margin-top: -15px;
 }
 
 .calendar-body li {
   width: calc(100% / 7);
-  font-size: 1.07rem;
+  font-size: 1rem;
   color: #414141;
 }
 
 .calendar-body .calendar-weekdays li {
   cursor: default;
-  font-weight: 500;
+  font-weight: 600;
+  margin-top: -25px;
 }
 
 .calendar-body .calendar-dates li {
-  margin-top: 30px;
+  margin-top: 15px;
   position: relative;
   z-index: 1;
   cursor: pointer;
@@ -89,14 +68,14 @@ header .calendar-current-date {
   z-index: -1;
   top: 50%;
   left: 50%;
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
 
 .calendar-dates li.active::before {
-  background: #6332c5;
+  background: #f04c8c;
 }
 
 .calendar-dates li:not(.active):hover::before {
