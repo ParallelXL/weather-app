@@ -30,4 +30,7 @@ Please make sure to update tests as appropriate.
 
 ## Authors and acknowledgment
 
-Hello 👋 I am Ayan Nagori, a frontend developer from India. I make modern and minimal websites. check my <a target='_blank' href="https://github.com/ParallelXL">Github Profile</a> or <a target='_blank' href="https://ayannagori.vercel.app/">My Portfolio</a> to know more 😉.
+Owner -- Hello 👋 I am Ayan Nagori AKA ParallelXL online, a frontend developer from India. I make modern and minimal websites. check my <a target='_blank' href="https://github.com/ParallelXL">Github Profile</a> or <a target='_blank' href="https://ayannagori.vercel.app/">My Portfolio</a> to check out my projects 😉.
+
+Contributer -- YOU CAN ADD WHATEVER YOU WANT HERE BELLO
+
